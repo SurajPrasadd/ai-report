@@ -1,0 +1,75 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: ai_productivity_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ai_productivity_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-postgres123}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./backend/src/database/schema.sql:/docker-entrypoint-initdb.d/01_schema.sql
+      - ./backend/src/database/seed.sql:/docker-entrypoint-initdb.d/02_seed.sql
+    ports:
+      - '5432:5432'
+    networks:
+      - ai_network
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: ai_productivity_backend
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: ai_productivity_db
+      DB_USER: postgres
+      DB_PASSWORD: ${DB_PASSWORD:-postgres123}
+      JWT_SECRET: ${JWT_SECRET:-change_this_secret_in_production_min_32_chars}
+      JWT_REFRESH_SECRET: ${JWT_REFRESH_SECRET:-change_this_refresh_secret_in_production}
+      CORS_ORIGIN: ${CORS_ORIGIN:-*}
+    ports:
+      - '3000:3000'
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - ai_network
+    volumes:
+      - backend_logs:/app/logs
+      - backend_uploads:/app/uploads
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: ai_productivity_pgadmin
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@company.com
+      PGADMIN_DEFAULT_PASSWORD: admin123
+    ports:
+      - '5050:80'
+    depends_on:
+      - postgres
+    networks:
+      - ai_network
+
+volumes:
+  postgres_data:
+  backend_logs:
+  backend_uploads:
+
+networks:
+  ai_network:
+    driver: bridge
