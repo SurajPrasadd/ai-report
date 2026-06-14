@@ -19,9 +19,7 @@ services:
       - ai_network
     healthcheck:
       test: ['CMD-SHELL', 'pg_isready -U postgres']
-      interval: 10s
-      timeout: 5s
-      retries: 5
+      interval: 10s; timeout: 5s; retries: 5
 
   backend:
     build:
@@ -39,7 +37,7 @@ services:
       DB_PASSWORD: ${DB_PASSWORD:-postgres123}
       JWT_SECRET: ${JWT_SECRET:-change_this_secret_in_production_min_32_chars}
       JWT_REFRESH_SECRET: ${JWT_REFRESH_SECRET:-change_this_refresh_secret_in_production}
-      CORS_ORIGIN: ${CORS_ORIGIN:-*}
+      CORS_ORIGIN: http://localhost:80
     ports:
       - '3000:3000'
     depends_on:
@@ -50,6 +48,19 @@ services:
     volumes:
       - backend_logs:/app/logs
       - backend_uploads:/app/uploads
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: ai_productivity_frontend
+    restart: unless-stopped
+    ports:
+      - '80:80'
+    depends_on:
+      - backend
+    networks:
+      - ai_network
 
   pgadmin:
     image: dpage/pgadmin4:latest

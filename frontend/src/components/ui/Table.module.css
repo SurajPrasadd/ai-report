@@ -1,0 +1,51 @@
+.tableContainer { overflow: hidden; border-radius: var(--radius-lg); border: 1px solid var(--border); background: var(--surface); }
+
+.tableWrapper { overflow-x: auto; }
+
+.table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+
+.th {
+  padding: 11px 16px;
+  text-align: left;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+.td { padding: 13px 16px; border-bottom: 1px solid var(--border); color: var(--text-primary); vertical-align: middle; }
+
+.tr:last-child .td { border-bottom: none; }
+.tr.clickable { cursor: pointer; transition: background 0.15s; }
+.tr.clickable:hover .td { background: var(--primary-50); }
+
+.skeleton {
+  height: 16px; background: var(--border);
+  border-radius: 4px;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+.empty { padding: 48px 16px !important; }
+.emptyContent { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.emptyIcon { font-size: 36px; }
+.emptyContent p { color: var(--text-muted); font-size: 0.9rem; }
+
+.pagination {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 16px; border-top: 1px solid var(--border);
+  flex-wrap: wrap; gap: 8px;
+}
+.paginationInfo { font-size: 0.8rem; color: var(--text-muted); }
+.paginationControls { display: flex; align-items: center; gap: 4px; }
+.pageBtn {
+  width: 32px; height: 32px; border: 1px solid var(--border); background: var(--surface);
+  border-radius: var(--radius-sm); font-size: 0.8rem; cursor: pointer; transition: var(--transition);
+  color: var(--text-secondary);
+}
+.pageBtn:hover { border-color: var(--primary); color: var(--primary); }
+.pageBtnActive { background: var(--primary) !important; color: #fff !important; border-color: var(--primary) !important; font-weight: 700; }

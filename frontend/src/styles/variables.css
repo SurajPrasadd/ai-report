@@ -1,0 +1,91 @@
+:root {
+  /* Primary */
+  --primary: #1976d2;
+  --primary-dark: #1565c0;
+  --primary-light: #42a5f5;
+  --primary-50: #e3f2fd;
+  --primary-100: #bbdefb;
+
+  /* Secondary */
+  --secondary: #26c6da;
+  --accent: #ff6f00;
+
+  /* Semantic */
+  --success: #2e7d32;
+  --success-light: #e8f5e9;
+  --warning: #e65100;
+  --warning-light: #fff3e0;
+  --error: #c62828;
+  --error-light: #ffebee;
+  --info: #0277bd;
+  --info-light: #e1f5fe;
+
+  /* Neutrals */
+  --bg: #f4f6f9;
+  --surface: #ffffff;
+  --surface-2: #f8fafc;
+  --border: #e2e8f0;
+  --border-dark: #cbd5e1;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --text-disabled: #cbd5e1;
+
+  /* Sidebar */
+  --sidebar-width: 260px;
+  --sidebar-collapsed: 68px;
+  --sidebar-bg: #0f172a;
+  --sidebar-text: #94a3b8;
+  --sidebar-active: #1976d2;
+  --sidebar-hover: rgba(255,255,255,0.06);
+
+  /* Navbar */
+  --navbar-height: 64px;
+
+  /* Shadows */
+  --shadow-xs: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition: all 0.2s ease;
+  --transition-slow: all 0.35s ease;
+
+  /* Chart colors */
+  --chart-1: #1976d2;
+  --chart-2: #26c6da;
+  --chart-3: #ff6f00;
+  --chart-4: #2e7d32;
+  --chart-5: #7b1fa2;
+  --chart-6: #c62828;
+  --chart-7: #00838f;
+  --chart-8: #f57f17;
+}
+
+[data-theme="dark"] {
+  --bg: #0f172a;
+  --surface: #1e293b;
+  --surface-2: #1e293b;
+  --border: #334155;
+  --border-dark: #475569;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --primary-50: rgba(25,118,210,0.15);
+  --success-light: rgba(46,125,50,0.15);
+  --warning-light: rgba(230,81,0,0.15);
+  --error-light: rgba(198,40,40,0.15);
+  --info-light: rgba(2,119,189,0.15);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.3);
+}

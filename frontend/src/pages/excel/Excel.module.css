@@ -1,0 +1,21 @@
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; box-shadow: var(--shadow-sm); }
+.cardHeader { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 20px; }
+.cardIcon { width: 48px; height: 48px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0; }
+.cardTitle { font-size: 1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 4px; }
+.cardSubtitle { font-size: 0.8rem; color: var(--text-muted); }
+.sectionLabel { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); margin-bottom: 10px; }
+.uploadZone { border: 2px dashed var(--border); border-radius: var(--radius-lg); padding: 32px; text-align: center; transition: var(--transition); }
+.uploadZone:hover { border-color: var(--primary); background: var(--primary-50); }
+.uploadLabel { display: flex; flex-direction: column; align-items: center; cursor: pointer; }
+.uploadText { font-size: 0.9rem; font-weight: 600; color: var(--primary); margin-bottom: 4px; }
+.uploadHint { font-size: 0.75rem; color: var(--text-muted); }
+.previewCard { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; box-shadow: var(--shadow-sm); }
+.sheetInfo { margin-bottom: 16px; }
+.sheetBadge { display: inline-block; padding: 6px 14px; border-radius: var(--radius-full); font-size: 0.875rem; font-weight: 700; }
+.columnGrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 6px; margin-bottom: 16px; }
+.columnItem { display: flex; align-items: center; gap: 8px; padding: 7px 10px; background: var(--surface-2); border-radius: var(--radius-sm); border: 1px solid var(--border); }
+.columnIndex { font-size: 0.72rem; font-weight: 700; color: var(--primary); min-width: 20px; }
+.columnName { font-size: 0.8rem; color: var(--text-secondary); }
+.sampleNote { display: flex; align-items: flex-start; gap: 8px; padding: 10px 14px; background: var(--info-light); border-radius: var(--radius-md); font-size: 0.8rem; color: var(--text-secondary); }
+
+@media (max-width: 768px) { .columnGrid { grid-template-columns: 1fr; } }

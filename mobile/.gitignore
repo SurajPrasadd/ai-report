@@ -1,9 +1,0 @@
-node_modules/
-.gradle/
-android/app/build/
-android/build/
-ios/build/
-ios/Pods/
-*.pbxproj.bak
-.env
-coverage/

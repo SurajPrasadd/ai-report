@@ -1,0 +1,19 @@
+.card {
+  background: var(--surface); border-radius: var(--radius-lg);
+  border: 1px solid var(--border); box-shadow: var(--shadow-sm);
+  padding: 20px; display: flex; flex-direction: column; gap: 6px;
+  transition: var(--transition);
+}
+.card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+
+.top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 4px; }
+
+.iconBox { width: 48px; height: 48px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; }
+
+.value { font-size: 2rem; font-weight: 800; line-height: 1; }
+.title { font-size: 0.825rem; font-weight: 500; color: var(--text-secondary); }
+.subtitle { font-size: 0.75rem; color: var(--text-muted); }
+
+.trend { font-size: 0.75rem; font-weight: 700; padding: 3px 8px; border-radius: var(--radius-full); }
+.trendUp { background: var(--success-light); color: var(--success); }
+.trendDown { background: var(--error-light); color: var(--error); }

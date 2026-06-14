@@ -1,0 +1,41 @@
+.toolbar { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+.toolbar > *:last-child { margin-left: auto; }
+
+.formGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.formFull { grid-column: 1 / -1; }
+
+.detailHeader {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  border-radius: var(--radius-lg); padding: 24px; margin-bottom: 20px; color: #fff;
+}
+.detailCode { font-size: 0.8rem; font-weight: 700; opacity: 0.8; letter-spacing: 1px; margin-bottom: 6px; }
+.detailTitle { font-size: 1.6rem; font-weight: 800; margin-bottom: 6px; }
+.detailDesc { font-size: 0.9rem; opacity: 0.85; }
+
+.detailGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+
+.detailCard { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 20px; }
+
+.detailCardTitle { font-size: 0.875rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 14px; }
+
+.fieldRow { display: flex; justify-content: space-between; align-items: center; padding: 9px 0; border-bottom: 1px solid var(--border); }
+.fieldRow:last-child { border-bottom: none; }
+.fieldLabel { font-size: 0.82rem; color: var(--text-muted); }
+.fieldValue { font-size: 0.875rem; font-weight: 600; color: var(--text-primary); }
+
+.teamCard { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+.teamHeader { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; border-bottom: 1px solid var(--border); }
+.teamTitle { font-size: 0.875rem; font-weight: 700; color: var(--text-primary); }
+
+.memberRow { display: flex; align-items: center; gap: 12px; padding: 12px 20px; border-bottom: 1px solid var(--border); }
+.memberRow:last-child { border-bottom: none; }
+.memberAvatar { width: 36px; height: 36px; border-radius: 50%; background: var(--primary-50); color: var(--primary); font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.memberInfo { flex: 1; }
+.memberName { font-size: 0.875rem; font-weight: 600; color: var(--text-primary); }
+.memberEmail { font-size: 0.75rem; color: var(--text-muted); }
+
+.statusChips { display: flex; gap: 6px; flex-wrap: wrap; }
+.chip { padding: 5px 14px; border-radius: var(--radius-full); border: 1.5px solid var(--border); font-size: 0.8rem; cursor: pointer; transition: var(--transition); background: var(--surface); color: var(--text-secondary); }
+.chip.active { background: var(--primary); border-color: var(--primary); color: #fff; font-weight: 600; }
+
+@media (max-width: 768px) { .formGrid, .detailGrid { grid-template-columns: 1fr; } }
