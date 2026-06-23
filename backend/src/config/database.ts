@@ -1,11 +1,18 @@
 import { Pool, PoolConfig } from 'pg';
+import path from 'path';
+import dotenv from 'dotenv';
 import { logger } from '../utils/logger';
+
+dotenv.config({
+  path: path.resolve(__dirname, '../../.env')
+});
+
 
 const dbConfig: PoolConfig = {
   host: process.env.DB_HOST || 'localhost',
   port: parseInt(process.env.DB_PORT || '5432', 10),
   database: process.env.DB_NAME || 'ai_productivity_db',
-  user: process.env.DB_USER || 'postgres',
+  user: process.env.DB_USER || 'admin',
   password: process.env.DB_PASSWORD || '',
   ssl: process.env.DB_SSL === 'true' ? { rejectUnauthorized: false } : false,
   min: parseInt(process.env.DB_POOL_MIN || '2', 10),
