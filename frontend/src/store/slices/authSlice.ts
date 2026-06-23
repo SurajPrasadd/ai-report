@@ -5,7 +5,7 @@ import { extractApiError } from '@/utils/helpers';
 
 const initialState: AuthState = {
   user: null, accessToken: null, refreshToken: null,
-  isAuthenticated: false, isLoading: false, error: null,
+  isAuthenticated: false, isLoading: false, isRestoring: true, error: null,
 };
 
 export const loginThunk = createAsyncThunk(
@@ -60,13 +60,15 @@ const authSlice = createSlice({
        s.refreshToken = a.payload.refreshToken;
      })
      .addCase(loginThunk.rejected, (s, a) => { s.isLoading = false; s.error = a.payload as string; })
-     .addCase(logoutThunk.fulfilled, s => { Object.assign(s, initialState); })
+     .addCase(logoutThunk.fulfilled, s => { Object.assign(s, { ...initialState, isRestoring: false }); })
      .addCase(restoreSessionThunk.fulfilled, (s, a) => {
+       s.isRestoring = false;
        if (a.payload) {
          s.isAuthenticated = true; s.user = a.payload.user;
          s.accessToken = a.payload.accessToken; s.refreshToken = a.payload.refreshToken;
        }
      })
+     .addCase(restoreSessionThunk.rejected, s => { s.isRestoring = false; })
      .addCase(refreshProfileThunk.fulfilled, (s, a) => { s.user = a.payload; });
   },
 });

@@ -19,6 +19,7 @@ export interface AuthState {
   refreshToken: string | null;
   isAuthenticated: boolean;
   isLoading: boolean;
+  isRestoring: boolean;
   error: string | null;
 }
 
