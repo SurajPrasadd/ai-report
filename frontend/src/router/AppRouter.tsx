@@ -29,7 +29,9 @@ const Loader = () => (
 );
 
 const AppRouter: React.FC = () => {
-  const { isAuthenticated } = useAppSelector(s => s.auth);
+  const { isAuthenticated, isRestoring } = useAppSelector(s => s.auth);
+
+  if (isRestoring) return <Loader />;
 
   return (
     <BrowserRouter>
